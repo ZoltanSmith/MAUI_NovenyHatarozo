@@ -11,33 +11,59 @@
         Margin="30,0">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Noveny">
-                <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="30" />
-                    </Grid.ColumnDefinitions>
+                    <Border
+                        Background="CadetBlue"
+                        Stroke="DarkOliveGreen"
+                        StrokeThickness="2">
+                        <Border.StrokeShape>
+                        <RoundRectangle
+                            CornerRadius="30,0,0,30"/>
+                        </Border.StrokeShape>
+                    <Grid Padding="20,15" RowSpacing="10" ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <Label
-                        Text="{Binding Nev}"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        Grid.Row="0" />
+                        <Label
+                            Text="{Binding Nev}"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            />
 
-                    <Label
-                        Text="{Binding Vizigeny, StringFormat='Vízigény: {0}L'}"
-                        FontSize="14"
-                        Grid.Row="1" />
+                        <Label
+                            Text="{Binding Vizigeny, StringFormat='Vízigény: {0}L'}"
+                            FontSize="14"
+                            Grid.Row="1" />
 
-                    <CheckBox
-                        IsEnabled="False"
-                        IsChecked="{Binding Orokzold}"
-                        Grid.Row="2" />
-                </Grid>
+                        <CheckBox
+                            IsChecked="{Binding Orokzold}"
+                            Grid.Row="2">
+                            <CheckBox.IsEnabled>
+                                <OnPlatform
+                                    x:TypeArguments="x:Boolean"
+                                    Default="false">
+                                    <On Platform="WinUI" Value="true" />
+                                    <On Platform="MacCatalyst" Value="true" />
+                                </OnPlatform>
+                            </CheckBox.IsEnabled>
+
+                        </CheckBox>
+
+                        <Image
+                            Source="{Binding Kep}"
+                            WidthRequest="100"
+                            HeightRequest="100"
+                            Grid.Column="1"
+                            Grid.RowSpan="3"
+                            />
+                    </Grid>
+                </Border>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
