@@ -1,7 +1,12 @@
-﻿namespace MAUI_NovenyHatarozo.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MAUI_NovenyHatarozo.Model
 {
     public partial class Noveny
     {
+        [Key]
+        public int Id { get; set; }
+        
         public required string Nev { get; set; }
         //[ObservableProperty]
         //required string nev;

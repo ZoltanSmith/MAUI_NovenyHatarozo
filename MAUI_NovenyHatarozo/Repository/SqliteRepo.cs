@@ -1,21 +1,22 @@
-﻿using MAUI_NovenyHatarozo.Model;
+﻿using MAUI_NovenyHatarozo.Data;
+using MAUI_NovenyHatarozo.Model;
 
 namespace MAUI_NovenyHatarozo.Repository
 {
     internal class SqliteRepo : INovenyRepository
     {
-        //AppDbContext db;
+        AppDbContext db;
 
         public SqliteRepo(
-            //AppDbContext db
+            AppDbContext db
             )
         {
-            //this.db = db;
+            this.db = db;
         }
 
         public List<Noveny> GetAllNoveny()
         {
-            throw new NotImplementedException();
+            return db.Novenyek.ToList();
         }
     }
 }

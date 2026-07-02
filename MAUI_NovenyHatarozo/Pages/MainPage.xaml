@@ -7,6 +7,24 @@
 
     <ScrollView>
         <VerticalStackLayout>
+            <Label>
+                <Label.Text>
+                    <OnIdiom x:TypeArguments="x:String">
+                        <OnIdiom.Phone>Phone Mode</OnIdiom.Phone>
+                        <OnIdiom.Desktop>Desktop Mode</OnIdiom.Desktop>
+                        <OnIdiom.Tablet>Tablet Mode</OnIdiom.Tablet>
+                        <OnIdiom.Watch>Watch Mode</OnIdiom.Watch>
+                        <OnIdiom.TV>TV Mode</OnIdiom.TV>
+                    </OnIdiom>
+                </Label.Text>
+                <Label.IsVisible>
+                    <OnIdiom x:TypeArguments="x:Boolean"
+                                    Default="true">
+                        <OnIdiom.Watch>false</OnIdiom.Watch>
+                    </OnIdiom>
+                </Label.IsVisible>
+            </Label>
+            
             <Button
                 Text="Go to List Page"
                 Command="{Binding GoToListViewCommand}"

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MAUI_NovenyHatarozo.ViewModel"
              xmlns:model="clr-namespace:MAUI_NovenyHatarozo.Model"
+             xmlns:orientation="clr-namespace:MAUI_NovenyHatarozo.Orientation"
              x:DataType="viewmodel:NovenyListVM"
              x:Class="MAUI_NovenyHatarozo.Pages.ListPage"
              Title="Növények">
@@ -11,6 +12,17 @@
         Margin="30,0">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Noveny">
+                <ContentView>
+                    <ContentView.MaximumWidthRequest>
+                        <orientation:OnOrientation>
+                            <orientation:OnOrientation.Portrait>
+                                Auto
+                            </orientation:OnOrientation.Portrait>
+                            <orientation:OnOrientation.Landscape>
+                                600
+                            </orientation:OnOrientation.Landscape>
+                        </orientation:OnOrientation>
+                    </ContentView.MaximumWidthRequest>
                     <Border
                         Background="CadetBlue"
                         Stroke="DarkOliveGreen"
@@ -65,6 +77,7 @@
                             />
                     </Grid>
                 </Border>
+                </ContentView>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
