@@ -1,8 +1,10 @@
 ﻿namespace MAUI_NovenyHatarozo.Model
 {
-    public class Noveny
+    public partial class Noveny
     {
         public required string Nev { get; set; }
+        //[ObservableProperty]
+        //required string nev;
 
         /// <summary>
         /// literben kifejezett vízigény, pl. 1.5 liter

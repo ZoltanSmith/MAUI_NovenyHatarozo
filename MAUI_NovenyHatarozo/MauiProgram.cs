@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using MAUI_NovenyHatarozo.ViewModel;
 using MAUI_NovenyHatarozo.Pages;
+using MAUI_NovenyHatarozo.Repository;
 
 namespace MAUI_NovenyHatarozo
 {
@@ -20,7 +21,8 @@ namespace MAUI_NovenyHatarozo
                     .AddSingleton<MainVM>()
                     .AddSingleton<MainPage>()
                     .AddSingleton<NovenyListVM>()
-                    .AddSingleton<ListPage>();
+                    .AddSingleton<ListPage>()
+                    .AddTransient<INovenyRepository, TestRepo>();
 
 #if DEBUG
             builder.Logging.AddDebug();
