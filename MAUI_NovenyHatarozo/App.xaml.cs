@@ -1,28 +1,24 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Plugin.Maui.Audio;
+﻿using MAUI_NovenyHatarozo.Services;
 
 namespace MAUI_NovenyHatarozo
 {
     public partial class App : Application
     {
-        public App()
+        SoundService soundService;
+
+        public App(SoundService soundService)
         {
             InitializeComponent();
+            this.soundService = soundService;
         }
 
         protected override void OnStart()
         {
             base.OnStart();
-            PlaySound();
+            soundService.PlaySound();
         }
-
-        private async void PlaySound()
-        {
-            Stream stream = await FileSystem.OpenAppPackageFileAsync("Resources/Sounds/Ding-sound-three-times.mp3");
-            AsyncAudioPlayer audioPlayer = AudioManager.Current.CreateAsyncPlayer(stream);
-            audioPlayer.PlayAsync(new());
-        }
-
+        
+        
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new AppShell());

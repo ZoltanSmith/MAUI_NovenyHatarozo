@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="MAUI_NovenyHatarozo/MAUI_NovenyHatarozo.csproj" />
+  <Project Path="MAUI_NovenyHatarozo/MAUI_NovenyHatarozo.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

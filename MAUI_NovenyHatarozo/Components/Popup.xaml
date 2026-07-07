@@ -1,0 +1,16 @@
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MAUI_NovenyHatarozo.ViewModel"
+    x:Class="MAUI_NovenyHatarozo.Components.Popup"
+    HorizontalOptions="Fill"
+    VerticalOptions="Center"
+    Padding="10"
+    x:DataType="vm:PopupVM">
+
+    <VerticalStackLayout>
+        <Label Text="{Binding Msg}" />
+        <Button Text="OK" Command="{Binding OkCommand}" />
+    </VerticalStackLayout>
+
+</ContentView>

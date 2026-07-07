@@ -17,5 +17,8 @@ namespace MAUI_NovenyHatarozo.Model
         public double Vizigeny { get; set; }
         public string? Kep { get; set; }
         public bool Orokzold { get; set; }
+
+        public TimeSpan MikorLocsoljuk { get; set; }
+        public DateTime MikorUltettuk { get; set; }
     }
 }

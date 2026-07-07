@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Views;
 using MAUI_NovenyHatarozo.Data;
 using MAUI_NovenyHatarozo.Pages;
 using MAUI_NovenyHatarozo.Repository;
+using MAUI_NovenyHatarozo.Services;
 using MAUI_NovenyHatarozo.ViewModel;
 using Microsoft.Extensions.Logging;
 
@@ -25,6 +27,8 @@ namespace MAUI_NovenyHatarozo
                     .AddSingleton<MainPage>()
                     .AddSingleton<NovenyListVM>()
                     .AddSingleton<ListPage>()
+                    .AddSingleton<SoundService>()
+                    .AddTransientPopup<Popup, PopupVM>()
                     .AddDbContextFactory<AppDbContext>()
 #if DEBUG
                     .AddTransient<INovenyRepository, TestRepo>();

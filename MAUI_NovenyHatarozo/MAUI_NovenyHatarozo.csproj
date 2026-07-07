@@ -83,12 +83,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Components\Popup.xaml.cs">
+	    <DependentUpon>Popup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\ListPage.xaml.cs">
 	    <DependentUpon>ListPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Components\Popup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\ListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
