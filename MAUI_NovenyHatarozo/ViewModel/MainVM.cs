@@ -1,16 +1,29 @@
 ﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MAUI_NovenyHatarozo.Components;
 using MAUI_NovenyHatarozo.Pages;
-using System.Windows.Input;
 
 namespace MAUI_NovenyHatarozo.ViewModel
 {
     public partial class MainVM : ObservableObject
     {
+        private readonly IPopupService popupService;
+
         public MainVM(IPopupService popupService)
         {
-            popupService.ShowPopupAsync<PopupVM>(Shell.Current);
+            this.popupService = popupService;
+            ShowPopup("Hello");
+        }
+
+        private void ShowPopup(string message)
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                var popup = new CustomPopup(popupService, message);
+                await Shell.Current.ShowPopupAsync(popup);
+            });
         }
 
         [RelayCommand]

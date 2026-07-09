@@ -1,16 +1,17 @@
-<ContentView
+<toolkit:Popup
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:MAUI_NovenyHatarozo.ViewModel"
-    x:Class="MAUI_NovenyHatarozo.Components.Popup"
+    x:Class="MAUI_NovenyHatarozo.Components.CustomPopup"
     HorizontalOptions="Fill"
     VerticalOptions="Center"
     Padding="10"
     x:DataType="vm:PopupVM">
-
-    <VerticalStackLayout>
-        <Label Text="{Binding Msg}" />
+    
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <Label Text="{Binding Msg}" FontSize="16" TextColor="Black" />
         <Button Text="OK" Command="{Binding OkCommand}" />
     </VerticalStackLayout>
 
-</ContentView>
+</toolkit:Popup>
